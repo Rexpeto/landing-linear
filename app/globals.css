@@ -2,12 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
-::webkit-scrollbar {
+/* Scrollbar */
+::-webkit-scrollbar {
   @apply w-2;
 }
 
-::webkit-scrollbar-track {
-  @apply bg-background;
+::-webkit-scrollbar-track {
+  @apply bg-transparent;
 }
 
 ::-webkit-scrollbar-thumb {
@@ -15,7 +16,7 @@
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  @apply bg-gray-300/80;
+  @apply bg-gray-300/60;
 }
 
 @layer base {
