@@ -1,0 +1,30 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+::webkit-scrollbar {
+  @apply w-2;
+}
+
+::webkit-scrollbar-track {
+  @apply bg-background;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-gray-300/40 rounded-lg transition duration-150;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-gray-300/80;
+}
+
+@layer base {
+  :root {
+    --navigation-height: 4.8rem;
+  }
+
+  html {
+    @apply bg-background font-sans text-white;
+    font-size: 62.5%;
+  }
+}
