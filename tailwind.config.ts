@@ -25,6 +25,7 @@ const config: Config = {
       spacing: {
         0: "0",
         1: "0.4rem",
+        1.5: "0.5rem",
         2: "0.8rem",
         3: "1.2rem",
         4: "1.6rem",
@@ -57,6 +58,9 @@ const config: Config = {
           "radial-gradient(circle at bottom center,var(--color),transparent 70%)",
         "glass-gradient":
           "linear-gradient(rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.05) 100%)",
+      },
+      boxShadow: {
+        primary: "rgb(80 63 205 / 50%) 0px 1px 40px",
       },
     },
   },
