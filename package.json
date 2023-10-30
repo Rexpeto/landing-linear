@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "class-variance-authority": "^0.7.0",
     "classnames": "^2.3.2",
     "next": "14.0.0",
     "react": "^18",
