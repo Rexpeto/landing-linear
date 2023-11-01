@@ -1,28 +1,49 @@
+"use client";
 import Image from "next/image";
 import Link from "next/link";
 import { Button, Container } from ".";
 import { Links } from "@/models";
+import { RxHamburgerMenu } from "react-icons/rx";
+import { useState } from "react";
+import classNames from "classnames";
 
 const Header = () => {
+  const [open, setOpen] = useState(false);
+
   return (
     <header className="fixed top-0 left-0 w-full border-b border-white/10 backdrop-blur-md">
-      <Container className="flex items-center justify-between h-[var(--navigation-height)]">
+      <Container className="flex items-center justify-between h-navigation-height">
         <div className="flex items-center gap-6">
           <Link href="/" className="flex items-center text-md gap-2">
             <Image src="/logo.svg" alt="Vypers" width={28} height={28} />
             <span className="font-semibold">Vypers</span>
           </Link>
 
-          <nav className="flex items-center gap-6 h-full">
-            {Links.map((link) => (
-              <Link
-                className="text-sm hover:text-gray-400 first-letter:uppercase transition duration-150"
-                href={link.url}
-                key={link.name}
-              >
-                {link.name}
-              </Link>
-            ))}
+          <nav
+            className={classNames(
+              "fixed top-navigation-height left-0 h-[calc(100vh_-_var(--navigation-height))] w-full overflow-auto bg-background transition-opacity duration-500 md:relative md:top-0 md:block md:h-auto md:w-auto md:translate-x-0 md:overflow-hidden md:bg-transparent md:opacity-100 md:transition-none",
+              open ? "block" : "hidden",
+            )}
+          >
+            <ul
+              className={classNames(
+                "flex md:flex-row md:pt-0 flex-col md:items-center md:gap-6 h-full",
+              )}
+            >
+              {Links.map((link) => (
+                <li
+                  key={link.name}
+                  className="first-letter:uppercase border-y border-white/10 md:border-none w-full"
+                >
+                  <Link
+                    className="block p-3 md:p-0 text-md md:text-sm hover:text-gray-400 first-letter:uppercase w-full transition duration-150"
+                    href={link.url}
+                  >
+                    {link.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </nav>
         </div>
 
@@ -36,6 +57,10 @@ const Header = () => {
           <Button href="#" variants="primary" size="medium">
             Sign up
           </Button>
+
+          <button className="ml-2 text-md md:hidden">
+            <RxHamburgerMenu onClick={() => setOpen(!open)} />
+          </button>
         </div>
       </Container>
     </header>
