@@ -19,32 +19,42 @@ const Header = () => {
             <span className="font-semibold">Vypers</span>
           </Link>
 
-          <nav
+          <div
             className={classNames(
-              "fixed top-navigation-height left-0 h-[calc(100vh_-_var(--navigation-height))] w-full overflow-auto bg-background transition-opacity duration-500 md:relative md:top-0 md:block md:h-auto md:w-auto md:translate-x-0 md:overflow-hidden md:bg-transparent md:opacity-100 md:transition-none",
-              open ? "block" : "hidden",
+              "transition-[visibility]",
+              open ? "visible" : "invisible delay-500 md:visible",
             )}
           >
-            <ul
+            <nav
               className={classNames(
-                "flex md:flex-row md:pt-0 flex-col md:items-center md:gap-6 h-full",
+                "fixed top-navigation-height left-0 h-[calc(100vh_-_var(--navigation-height))] w-full overflow-auto bg-background transition-opacity duration-250 md:relative md:top-0 md:block md:h-auto md:w-auto md:translate-x-0 md:overflow-hidden md:bg-transparent md:opacity-100",
+                open ? "opacity-100" : "opacity-0",
               )}
             >
-              {Links.map((link) => (
-                <li
-                  key={link.name}
-                  className="first-letter:uppercase border-y border-white/10 md:border-none w-full"
-                >
-                  <Link
-                    className="block p-3 md:p-0 text-md md:text-sm hover:text-gray-400 first-letter:uppercase w-full transition duration-150"
-                    href={link.url}
+              <ul
+                className={classNames(
+                  "flex md:flex-row md:pt-0 flex-col md:items-center md:gap-6 h-full",
+                )}
+              >
+                {Links.map((link) => (
+                  <li
+                    key={link.name}
+                    className={classNames(
+                      "first-letter:uppercase border-y border-white/10 md:border-none translate-y-8 md:translate-y-0 transition-transform duration-150 w-full",
+                      open && "md:translate-y-0",
+                    )}
                   >
-                    {link.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </nav>
+                    <Link
+                      className="block p-3 md:p-0 text-md md:text-sm hover:text-gray-400 first-letter:uppercase w-full transition duration-150"
+                      href={link.url}
+                    >
+                      {link.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+          </div>
         </div>
 
         <div className="flex items-center gap-4">
