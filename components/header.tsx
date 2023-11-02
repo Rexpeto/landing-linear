@@ -4,11 +4,15 @@ import Link from "next/link";
 import { Button, Container } from ".";
 import { Links } from "@/models";
 import { RxHamburgerMenu } from "react-icons/rx";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import classNames from "classnames";
 
 const Header = () => {
   const [open, setOpen] = useState(false);
+
+  useEffect(() => {
+    document.querySelector("html")?.classList.toggle("overflow-hidden");
+  }, [open]);
 
   return (
     <header className="fixed top-0 left-0 w-full border-b border-white/10 backdrop-blur-md">
@@ -27,8 +31,10 @@ const Header = () => {
           >
             <nav
               className={classNames(
-                "fixed top-navigation-height left-0 h-[calc(100vh_-_var(--navigation-height))] w-full overflow-auto bg-background transition-opacity duration-250 md:relative md:top-0 md:block md:h-auto md:w-auto md:translate-x-0 md:overflow-hidden md:bg-transparent md:opacity-100",
-                open ? "opacity-100" : "opacity-0",
+                "fixed top-navigation-height left-0 h-[calc(100vh_-_var(--navigation-height))] w-full overflow-auto bg-background transition-opacity duration-250  md:top-0 md:relative md:h-auto md:w-auto md:translate-x-0 md:overflow-hidden md:bg-transparent md:opacity-100",
+                open
+                  ? "opacity-100 translate-x-0"
+                  : "opacity-0 translate-x-[-100vw]",
               )}
             >
               <ul
