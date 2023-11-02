@@ -9,7 +9,7 @@ const Footer = () => {
     <footer className="border-t border-white/10 py-16 mt-5 text-sm">
       <Container className="flex flex-col lg:flex-row  justify-between">
         <div>
-          <div className="flex h-full flex-row lg:flex-col justify-between">
+          <div className="flex items-center h-full flex-row lg:flex-col justify-between">
             <div className="flex text-white/50 items-center gap-2">
               <Image src="/logo.svg" alt="Vypers" width={28} height={28} />
               Vypers - Designed Worldwide
