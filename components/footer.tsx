@@ -7,9 +7,9 @@ import { SiSlack, SiGithub, SiX } from "react-icons/si";
 const Footer = () => {
   return (
     <footer className="border-t border-white/10 py-16 mt-5 text-sm">
-      <Container className="flex justify-between">
+      <Container className="flex flex-col lg:flex-row  justify-between">
         <div>
-          <div className="flex h-full flex-col">
+          <div className="flex h-full flex-row lg:flex-col justify-between">
             <div className="flex text-white/50 items-center gap-2">
               <Image src="/logo.svg" alt="Vypers" width={28} height={28} />
               Vypers - Designed Worldwide
@@ -22,11 +22,11 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="flex">
+        <div className="flex flex-wrap">
           {footerLinks.map((column) => (
             <div
               key={column.title}
-              className="flex flex-col min-w-[18rem] gap-5"
+              className="flex flex-col min-w-[50%] lg:min-w-[18rem] mt-10 lg:mt-0 gap-5"
             >
               <h3 className="font-medium text-white/60">{column.title}</h3>
               {column.links.map((link) => (
