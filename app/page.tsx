@@ -1,10 +1,21 @@
-import { Container, Hero, HeroSubtitle, HeroTitle } from "@/components";
+import {
+  Button,
+  Container,
+  GetIcon,
+  Hero,
+  HeroSubtitle,
+  HeroTitle,
+} from "@/components";
 import Image from "next/image";
 
 const Home = () => {
   return (
-    <Container>
+    <Container className="pt-[6.2rem]">
       <Hero>
+        <Button href="/" variants="secondary" size="small">
+          Introducing Linear Ask
+          <GetIcon icon="IoIosArrowForward" />
+        </Button>
         <HeroTitle>
           Linear is a better way <br className="hidden lg:block" /> to build
           products
