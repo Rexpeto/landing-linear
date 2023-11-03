@@ -28,6 +28,8 @@ const config: Config = {
         background: "#000212",
         white: "#fff",
         "btn-primary": "#5e6ad2",
+        "0ff-white": "#f7f8f8",
+        "border-white": "rgba(255, 255, 255, 0.08)",
       },
       spacing: {
         0: "0",
