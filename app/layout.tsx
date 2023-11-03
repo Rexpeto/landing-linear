@@ -19,7 +19,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <Header />
-        <main className="pt-[var(--navigation-height)] bg-hero-gradient">
+        <main className="pt-[var(--navigation-height)] bg-page-gradient">
           {children}
         </main>
         <Footer />
