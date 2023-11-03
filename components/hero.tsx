@@ -7,7 +7,11 @@ interface HeoElementProps {
 }
 
 export const HeroTitle = ({ children }: HeoElementProps) => {
-  return <h1 className="font-medium text-5xl md:text-7xl my-6">{children}</h1>;
+  return (
+    <h1 className="font-medium text-5xl md:text-7xl my-6 text-gradient">
+      {children}
+    </h1>
+  );
 };
 
 export const HeroSubtitle = ({ children }: HeoElementProps) => {
