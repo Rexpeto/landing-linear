@@ -1,8 +1,7 @@
 import { footerLinks } from "@/models";
-import { Container } from ".";
+import { Container, GetIcon } from ".";
 import Link from "next/link";
 import Image from "next/image";
-import { SiSlack, SiGithub, SiX } from "react-icons/si";
 
 const Footer = () => {
   return (
@@ -15,9 +14,9 @@ const Footer = () => {
               Vypers - Designed Worldwide
             </div>
             <div className="flex items-center gap-6 text-md text-white/50 mt-auto">
-              <SiX />
-              <SiGithub />
-              <SiSlack />
+              <GetIcon icon="SiX" />
+              <GetIcon icon="SiGithub" />
+              <GetIcon icon="SiSlack" />
             </div>
           </div>
         </div>
