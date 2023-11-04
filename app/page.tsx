@@ -3,6 +3,7 @@ import {
   Container,
   GetIcon,
   Hero,
+  HeroImages,
   HeroSubtitle,
   HeroTitle,
 } from "@/components";
@@ -38,13 +39,8 @@ const Home = () => {
         >
           Get Started <GetIcon icon="IoIosArrowForward" />
         </Button>
-        <Image
-          className="w-full rounded-lg pt-48"
-          src={"/hero.webp"}
-          alt="hero image"
-          width={1200}
-          height={600}
-        />
+
+        <HeroImages />
       </Hero>
     </Container>
   );
