@@ -4,6 +4,7 @@ import { cva, VariantProps } from "class-variance-authority";
 interface Props extends VariantProps<typeof buttonClasses> {
   children: React.ReactNode;
   href: string;
+  className?: string;
 }
 
 const buttonClasses = cva(
@@ -30,9 +31,12 @@ const buttonClasses = cva(
   },
 );
 
-const Button = ({ children, href, variants, size }: Props) => {
+const Button = ({ children, href, variants, size, className }: Props) => {
   return (
-    <Link className={buttonClasses({ variants, size })} href={href}>
+    <Link
+      className={`${buttonClasses({ variants, size })} ${className}`}
+      href={href}
+    >
       {children}
     </Link>
   );
