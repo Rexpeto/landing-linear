@@ -15,7 +15,7 @@ const Header = () => {
   }, [open]);
 
   return (
-    <header className="fixed top-0 left-0 w-full border-b border-white/10 backdrop-blur-md">
+    <header className="fixed top-0 left-0 w-full border-b border-white/10 backdrop-blur-md z-50">
       <Container className="flex items-center justify-between h-navigation-height">
         <div className="flex items-center gap-6">
           <Link href="/" className="flex items-center text-md gap-2">
