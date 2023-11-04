@@ -25,8 +25,11 @@ const Home = () => {
           <br className="hidden lg:block" /> Streamline issues, sprints, and
           product roadmaps.
         </HeroSubtitle>
+        <Button href="/" variants="primary" size="large">
+          Get Started <GetIcon icon="IoIosArrowForward" />
+        </Button>
         <Image
-          className="w-full rounded-lg"
+          className="w-full rounded-lg pt-48"
           src={"/hero.webp"}
           alt="hero image"
           width={1200}
