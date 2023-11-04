@@ -71,6 +71,21 @@ const config: Config = {
       boxShadow: {
         primary: "rgb(80 63 205 / 50%) 0px 1px 40px",
       },
+      keyframes: {
+        fadeIn: {
+          from: {
+            opacity: "0",
+            transform: "translateY(-10px)",
+          },
+          to: {
+            opacity: "1",
+            trnsform: "none",
+          },
+        },
+      },
+      animation: {
+        "fade-in": "fadeIn 1000ms var(--animation-timing, 0ms) ease forwards",
+      },
     },
   },
   plugins: [],
