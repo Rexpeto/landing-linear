@@ -7,19 +7,20 @@ interface Props extends VariantProps<typeof buttonClasses> {
 }
 
 const buttonClasses = cva(
-  "inline-flex rounded-full text-white transition duration-150",
+  "inline-flex items-center gap-2 rounded-full text-white",
   {
     variants: {
       variants: {
-        primary: "bg-btn-primary hover:text-shadow hover:box-shadow",
+        primary:
+          "bg-primary-gradient hover:text-shadow hover:shadow-primary transition-[shadow, text-shadow] duration-150",
         secondary:
-          "flex items-center gap-2 text-off-white bg-white bg-opacity-10 hover:bg-opacity-20 border-border-white backdrop-filter-[12px]",
+          "text-off-white bg-white bg-opacity-10 hover:bg-opacity-20 border-border-white backdrop-filter-[12px] transition duration-150",
         gradient: "bg-primary-gradient",
       },
       size: {
         small: "text-xs px-3 py-1.5",
         medium: "text-sm px-4 py-1.5",
-        large: "text-lg px-6 py-2",
+        large: "text-md px-5 py-2",
       },
       defaultVariants: {
         variants: "primary",
