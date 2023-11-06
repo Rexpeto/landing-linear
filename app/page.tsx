@@ -7,7 +7,6 @@ import {
   HeroSubtitle,
   HeroTitle,
 } from "@/components";
-import Image from "next/image";
 
 const Home = () => {
   return (
