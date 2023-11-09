@@ -1,4 +1,3 @@
-import { Container } from "@/components";
 import {
   AlanLogo,
   ArcLogo,
@@ -16,7 +15,7 @@ import {
 
 const Clients = () => {
   return (
-    <Container>
+    <>
       <p className="mb-12 text-center text-lg text-white md:text-xl">
         <span className="text-gray-400">
           Powering the world's best product teams.
@@ -39,7 +38,7 @@ const Clients = () => {
         <OpenSeaLogo className="hidden md:block" />
         <PitchLogo className="hidden md:block" />
       </div>
-    </Container>
+    </>
   );
 };
 
