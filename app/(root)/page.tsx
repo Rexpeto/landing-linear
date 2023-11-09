@@ -1,10 +1,11 @@
-import { SectionClientLogo, SectionHero } from "./sections";
+import { SectionClientLogo, SectionHero, SectionUnlikeTool } from "./sections";
 
 const Home = () => {
   return (
     <>
       <SectionHero />
       <SectionClientLogo />
+      <SectionUnlikeTool />
     </>
   );
 };
