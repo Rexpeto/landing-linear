@@ -30,6 +30,8 @@ const config: Config = {
         "btn-primary": "#5e6ad2",
         "0ff-white": "#f7f8f8",
         "border-white": "rgba(255, 255, 255, 0.08)",
+        "primary-text": "#b4bcd0",
+        "transparent-white": "rgba(255, 255, 255, 0.08)",
       },
       spacing: {
         0: "0",
