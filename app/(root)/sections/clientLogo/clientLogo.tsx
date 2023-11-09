@@ -1,9 +1,13 @@
-import { Clients } from "./components";
+import { Clients, Sunrise } from "./components";
+import { Container } from "@/components";
 
 const SectionClientLogo = () => {
   return (
-    <section className="py-12">
-      <Clients />
+    <section className="pt-48">
+      <Container>
+        <Clients />
+        <Sunrise />
+      </Container>
     </section>
   );
 };
