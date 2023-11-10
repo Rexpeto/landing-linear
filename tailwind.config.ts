@@ -161,6 +161,14 @@ const config: Config = {
             transform: "translateY(45rem)",
           },
         },
+        zap: {
+          "0%, 9%, 11%, 100% ": {
+            fill: "transparent",
+          },
+          "10%": {
+            fill: "white",
+          },
+        },
       },
       animation: {
         "fade-in": "fadeIn 1000ms var(--animation-timing, 0ms) ease forwards",
@@ -171,6 +179,7 @@ const config: Config = {
           "glow-line-horizontal var(--animation-duration) ease-in forwards",
         "glow-line-vertical":
           "glow-line-vertical var(--animation-duration) ease-in forwards",
+        zap: "zap 2250ms calc(var(--index) * 20ms) linear infinite",
       },
     },
   },
