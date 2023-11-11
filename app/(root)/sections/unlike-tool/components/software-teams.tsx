@@ -3,7 +3,7 @@ import { LightIllustration } from ".";
 
 const SoftwareTeams = () => {
   return (
-    <div className="relative flex flex-col items-center justify-end bg-glass-gradient text-center basis-[calc(33.33%-12px)] rounded-[4.8rem] p-8 md:p-14 border-transparent-white border group">
+    <div className="relative overflow-hidden shrink-0 snap-center flex flex-col items-center justify-end bg-glass-gradient text-center w-full md:basis-[calc(33.33%-12px)] rounded-[4.8rem] p-8 md:p-14 border-transparent-white border group">
       <div className="absolute top-[-10rem] w-[123%] pointer-events-none">
         <LightIllustration />
       </div>
