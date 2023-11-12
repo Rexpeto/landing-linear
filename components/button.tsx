@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { cva, VariantProps } from "class-variance-authority";
+import classNames from "classnames";
 
 interface Props extends VariantProps<typeof buttonClasses> {
   children: React.ReactNode;
@@ -12,10 +13,14 @@ const buttonClasses = cva(
   {
     variants: {
       variants: {
-        primary:
+        primary: [
           "bg-primary-gradient hover:text-shadow hover:shadow-primary transition-[shadow, text-shadow] duration-150",
-        secondary:
+          "[&_.highlight]:ml-1",
+        ],
+        secondary: [
           "text-off-white bg-white bg-opacity-10 hover:bg-opacity-20 border-border-white backdrop-filter-[12px] transition duration-150",
+          "[&_.highlight]:bg-transparent-white [&_.highlight]:rounded-full [&_.highlight]:px-2 [&_.highlight:last-child]:ml-1 [&_.highlight:last-child]:mr-1 [&_.highlight:first-child]:-ml-2 [&_.highlight:first-child]:mr-2",
+        ],
         gradient: "bg-primary-gradient",
       },
       size: {
@@ -41,5 +46,13 @@ const Button = ({ children, href, variants, size, className }: Props) => {
     </Link>
   );
 };
+
+export const Highlight = ({
+  children,
+  className,
+}: {
+  children: React.ReactNode;
+  className?: string;
+}) => <span className={classNames("highlight", className)}>{children}</span>;
 
 export default Button;
