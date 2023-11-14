@@ -489,7 +489,7 @@ const KeyboardIllustration = () => (
         rx="2.75"
       ></rect>
     </g>
-    <g data-key="shift">
+    <g data-key="⇪">
       <rect
         width="90.431"
         height="38.756"
