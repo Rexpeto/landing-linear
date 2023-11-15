@@ -78,17 +78,12 @@ const ShortcutsKeys = () => {
     scheduleTimeout();
   };
 
-  const onShortcutClick = (ev: MouseEvent<HTMLButtonElement>) => {
-    ev.preventDefault();
-    goToShortcut(ev.currentTarget.dataset.index as unknown as number);
-  };
-
   return (
-    <div className="shrink-0 snap-center flex flex-col bg-glass-gradient min-h-[46rem] text-center w-full md:basis-[calc(66.66%-12px)]  md:max-w-[calc(66.66%-12px)] rounded-[4.8rem] p-8 md:p-14 border-transparent-white border">
+    <div className="shrink-0 snap-center flex flex-col bg-glass-gradient min-h-[46rem] text-center w-full md:basis-[calc(66.66%-12px)]  md:max-w-[calc(66.66%-12px)] rounded-[4.8rem] p-8 md:p-14 border-transparent-white border overflow-hidden">
       <div className="flex flex-col gap-4 mb-4">
         <div
           ref={illustrationWrapperRef}
-          className="mask-keyboard h-full w-full"
+          className="mask-keyboard h-full w-[200%] md:w-full"
         >
           <KeyboardIllustration />
         </div>
@@ -96,7 +91,7 @@ const ShortcutsKeys = () => {
         <div className="overflow-hidden w-full h-[4rem]">
           <div
             ref={wrapperRef}
-            className="flex snap-x snap-mandatory whitespace-nowrap pb-89 mask-shortcutkeys gap-2 overflow-x-auto max-w-full"
+            className="hidden md:flex snap-x snap-mandatory whitespace-nowrap pb-89 mask-shortcutkeys gap-2 overflow-x-auto max-w-full"
           >
             {shortcuts.map((shortcut, index) => (
               <Button
