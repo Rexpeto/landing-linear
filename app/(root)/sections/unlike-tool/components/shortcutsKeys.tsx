@@ -2,10 +2,10 @@
 
 import { Button, Highlight } from "@/components";
 import { KeyboardIllustration } from ".";
-import { MouseEvent, useRef } from "react";
+import { MouseEvent, useEffect, useRef, useState } from "react";
 
 const shortcuts = [
-  { text: "Opens command line", key: "⌘K" },
+  { text: "Opens command line", key: "⌘k" },
   { text: "Assign issue to me", key: "i" },
   { text: "Assign issue to", key: "a" },
   { text: "Change issue status", key: "s" },
@@ -21,23 +21,46 @@ const shortcuts = [
 const ShortcutsKeys = () => {
   const wrapperRef = useRef<HTMLDivElement>(null);
   const illustrationWrapperRef = useRef<HTMLDivElement>(null);
+  const activeShortcut = useRef(0);
+  const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  const onShortcutClick = (ev: MouseEvent<HTMLButtonElement>, key: string) => {
-    ev.preventDefault();
+  const scheduleTimeout = () => {
+    timeoutRef.current = setTimeout(() => {
+      goToNextShortcut();
+    }, 3000);
+  };
 
+  useEffect(() => {
+    scheduleTimeout();
+    return () => clearTimeout(timeoutRef.current);
+  });
+
+  const goToNextShortcut = () => {
+    goToShortcut((activeShortcut.current + 1) % shortcuts.length);
+  };
+
+  const goToShortcut = (index: number) => {
+    clearTimeout(timeoutRef.current);
     if (!wrapperRef.current) return;
 
+    const shortcut = wrapperRef.current.querySelector<HTMLButtonElement>(
+      `button:nth-child(${index + 1})`,
+    );
+    if (!shortcut) return;
+
     wrapperRef.current.scrollTo({
-      left: ev.currentTarget.offsetLeft - wrapperRef.current.clientWidth / 2,
+      left: shortcut.offsetLeft - wrapperRef.current.clientWidth / 2,
       behavior: "smooth",
     });
 
     if (!illustrationWrapperRef.current) return;
 
-    const keyArray = key.split("");
+    const keys = shortcut.dataset.keys;
+
+    const keyArray = keys?.split("") || [];
 
     const keyElement = keyArray.map(
-      (key) =>
+      (key: any) =>
         illustrationWrapperRef.current?.querySelector(`[data-key="${key}"]`),
     );
 
@@ -50,6 +73,14 @@ const ShortcutsKeys = () => {
 
       element.classList.add("active");
     });
+
+    activeShortcut.current = index;
+    scheduleTimeout();
+  };
+
+  const onShortcutClick = (ev: MouseEvent<HTMLButtonElement>) => {
+    ev.preventDefault();
+    goToShortcut(ev.currentTarget.dataset.index as unknown as number);
   };
 
   return (
@@ -67,11 +98,12 @@ const ShortcutsKeys = () => {
             ref={wrapperRef}
             className="flex snap-x snap-mandatory whitespace-nowrap pb-89 mask-shortcutkeys gap-2 overflow-x-auto max-w-full"
           >
-            {shortcuts.map((shortcut) => (
+            {shortcuts.map((shortcut, index) => (
               <Button
                 key={shortcut.key}
                 className="shrink-0 mb-2 snap-center last:mr-[50vw] first:ml-[50vw]"
-                onClick={(ev) => onShortcutClick(ev, shortcut.key)}
+                data-keys={shortcut.key}
+                data-index={index}
                 variants="secondary"
                 size="medium"
               >
