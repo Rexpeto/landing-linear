@@ -2,17 +2,23 @@
 
 import { commandOptions } from "@/models/commandOptions.model";
 import classNames from "classnames";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 
 const CommandMenu = () => {
   const [opened, setOpened] = useState(false);
+  const [selectedOption, setSelectedOption] = useState<number | null>(null);
   const commandMenuRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const toggleCommandMenu = (e: MouseEvent) => {
-      const clickedOutside = !commandMenuRef.current?.contains(
-        e.target as Node,
-      );
+      if (!commandMenuRef.current) return;
+
+      const isMenuButton =
+        e.target instanceof Element &&
+        e.target.classList.contains("command-menu-button");
+
+      const clickedOutside =
+        !isMenuButton && !commandMenuRef.current?.contains(e.target as Node);
       setOpened(clickedOutside ? false : true);
     };
 
@@ -22,6 +28,15 @@ const CommandMenu = () => {
       window.removeEventListener("click", toggleCommandMenu);
     };
   }, []);
+
+  const currentOptions = useMemo(() => {
+    const options =
+      selectedOption === null
+        ? commandOptions
+        : commandOptions[selectedOption]?.subOptions;
+
+    return options;
+  }, [selectedOption]);
 
   return (
     <div
@@ -41,10 +56,13 @@ const CommandMenu = () => {
         placeholder="Type a command or search..."
       />
       <div className="flex flex-col w-full text-sm text-gray-400/90 transition duration-150">
-        {commandOptions.map(({ label, icon: Icon }) => (
+        {currentOptions.map(({ label, icon: Icon, ...subOptions }, index) => (
           <button
             key={label}
-            className="flex items-center gap-3 py-3 px-4 text-start hover:bg-white/5 w-full"
+            onClick={() => {
+              setSelectedOption(subOptions ? index : null);
+            }}
+            className="flex items-center gap-3 py-3 px-4 text-start hover:bg-white/5 w-full command-menu-button"
           >
             <Icon />
             <span>{label}</span>
