@@ -169,6 +169,11 @@ const config: Config = {
             fill: "white",
           },
         },
+        bounce: {
+          "50%": {
+            transform: "scale(0.9)",
+          },
+        },
       },
       animation: {
         "fade-in": "fadeIn 1000ms var(--animation-timing, 0ms) ease forwards",
@@ -180,6 +185,7 @@ const config: Config = {
         "glow-line-vertical":
           "glow-line-vertical var(--animation-duration) ease-in forwards",
         zap: "zap 2250ms calc(var(--index) * 20ms) linear infinite",
+        bounce: "240ms ease 0s 1 running bounce",
       },
     },
   },
