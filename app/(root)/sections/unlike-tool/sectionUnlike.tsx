@@ -21,7 +21,7 @@ const SectionUnlike = () => {
           </p>
         </div>
         <div className="h-[48rem] overflow-hidden md:h-auto">
-          <div className="flex snap-x snap-mandatory md:flex-wrap overflow-x-auto overflow-y-hidden gap-6">
+          <div className="flex snap-x snap-mandatory md:flex-wrap overflow-x-auto overflow-hidden gap-6">
             <ShortcutsKeys />
 
             <Breathtakingly />

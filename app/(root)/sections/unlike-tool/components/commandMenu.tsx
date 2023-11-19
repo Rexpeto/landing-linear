@@ -66,8 +66,12 @@ const CommandMenu = () => {
           {currentOptions.map(({ label, icon: Icon, ...subOptions }, index) => (
             <button
               key={label}
-              onClick={() => {
+              onClick={(ev) => {
                 setSelectedOption(subOptions ? index : null);
+                if (!subOptions) {
+                  setOpened(false);
+                  ev.stopPropagation();
+                }
               }}
               className="flex items-center gap-3 py-3 px-4 text-start hover:bg-white/5 w-full command-menu-button"
             >
