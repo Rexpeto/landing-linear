@@ -20,7 +20,7 @@ const SectionUnlike = () => {
             precision, Linear combines UI elegance with world-class performance.
           </p>
         </div>
-        <div className="h-[48rem] overflow-hidden md:h-auto">
+        <div className="h-[46rem] overflow-hidden md:h-auto">
           <div className="flex snap-x snap-mandatory md:flex-wrap overflow-x-auto overflow-hidden gap-6">
             <ShortcutsKeys />
 
