@@ -11,7 +11,9 @@ const Home = () => {
       <SectionHero />
       <SectionClientLogo />
       <SectionUnlikeTool />
-      <SectionTracking />
+      <div className="my-10">
+        <SectionTracking />
+      </div>
     </>
   );
 };
