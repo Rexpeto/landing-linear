@@ -9,7 +9,7 @@ const EnjoyIssueTracking = () => {
           <>
             Issue tracking
             <br />
-            you'll enjoy using
+            you&apos;ll enjoy using
           </>
         }
         image="/issues.webp"
