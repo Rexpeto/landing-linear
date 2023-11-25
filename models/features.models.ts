@@ -15,7 +15,7 @@ export interface MainFeaturesProps {
   text: string;
   image: string;
   title: React.ReactNode;
-  imageSize: string;
+  imageSize?: string;
 }
 
 export type FeatureGridProps = {
