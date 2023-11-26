@@ -1,6 +1,7 @@
 import { Container } from "@/components";
 import {
   FeatureCardProps,
+  FeatureGrid,
   FeatureGridProps,
   FeaturesProps,
   MainFeaturesProps,
@@ -64,7 +65,20 @@ const MainFeatures = ({
 };
 
 const FeatureGrid = ({ features }: FeatureGridProps) => {
-  return <div>Feature Grid</div>;
+  return (
+    <div className="grid grid-cols-3 gap-y-9 text-md text-primary-text w-full">
+      {features.map(({ title, text, icon: Icon }: FeatureGrid) => (
+        <div
+          key={title}
+          className="w-[25.6rem] [&_svg]:inline [&_svg]:fill-white [&_svg]:mr-2"
+        >
+          <Icon />
+          <span className="text-white mr-2">{title}</span>
+          {text}
+        </div>
+      ))}
+    </div>
+  );
 };
 
 const FeatureCards = ({ features }: FeatureCardProps) => {
