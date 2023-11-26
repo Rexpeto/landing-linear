@@ -18,12 +18,14 @@ export interface MainFeaturesProps {
   imageSize?: string;
 }
 
+export interface FeatureGrid {
+  title: string;
+  text: string;
+  icon: React.FC;
+}
+
 export type FeatureGridProps = {
-  features: {
-    title: string;
-    text: string;
-    icon: React.FC;
-  }[];
+  features: FeatureGrid[];
 };
 
 export type FeatureCardProps = {
