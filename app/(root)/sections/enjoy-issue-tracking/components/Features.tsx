@@ -66,7 +66,7 @@ const MainFeatures = ({
 
 const FeatureGrid = ({ features }: FeatureGridProps) => {
   return (
-    <div className="grid grid-cols-3 gap-y-9 text-md text-primary-text w-full">
+    <div className="grid grid-cols-3 gap-y-9 mb-16 text-md text-primary-text w-full">
       {features.map(({ title, text, icon: Icon }: FeatureGrid) => (
         <div
           key={title}
@@ -82,7 +82,26 @@ const FeatureGrid = ({ features }: FeatureGridProps) => {
 };
 
 const FeatureCards = ({ features }: FeatureCardProps) => {
-  return <div>Feature Cards</div>;
+  return (
+    <div className="grid grid-cols-2 gap-6 w-full">
+      {features.map(({ title, text, image, imageClassName }) => (
+        <div
+          key={title}
+          className="relative bg-glass-gradient border border-transparent-white rounded-[4.8rem] aspect-[1.3/1] p-8 overflow-hidden"
+        >
+          <h3 className="text-xl text-white">{title}</h3>
+          <p className="text-primary-text text-sm max-w-lg">{text}</p>
+          <Image
+            className={classNames("absolute", imageClassName)}
+            src={image}
+            alt={title}
+            width={1024}
+            height={1024}
+          />
+        </div>
+      ))}
+    </div>
+  );
 };
 
 Features.Main = MainFeatures;
