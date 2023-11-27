@@ -9,11 +9,13 @@ import {
 import classNames from "classnames";
 import Image from "next/image";
 
-export const Features = ({ children }: FeaturesProps) => {
+export const Features = ({ children, color }: FeaturesProps) => {
   return (
-    <Container className="flex flex-col items-center py-48">
-      {children}
-    </Container>
+    <div style={{ "--feature-color": color } as React.CSSProperties}>
+      <Container className="flex flex-col items-center py-48">
+        {children}
+      </Container>
+    </div>
   );
 };
 
@@ -33,7 +35,7 @@ const MainFeatures = ({
 }: MainFeaturesProps) => {
   return (
     <>
-      <div className="relative before:absolute before:inset-0 before:bg-[radial-gradient(ellipse_50%_50%_at_center,rgba(var(--feature-color),0.1),transparent)]">
+      <div className="relative before:absolute before:inset-0 before:pointer-events-none before:bg-[radial-gradient(ellipse_50%_50%_at_center,rgba(var(--feature-color),0.1),transparent)]">
         <Container
           className={classNames(
             "max-w-[90%] text-center",
@@ -87,7 +89,7 @@ const FeatureCards = ({ features }: FeatureCardProps) => {
       {features.map(({ title, text, image, imageClassName }) => (
         <div
           key={title}
-          className="relative bg-glass-gradient border border-transparent-white rounded-[4.8rem] aspect-[1.3/1] p-8 overflow-hidden"
+          className="relative before:absolute before:inset-0 border border-transparent-white bg-[radial-gradient(ellipse_at_center,rgba(var(--feature-color),0.15),transparent)] before:bg-glass-gradient rounded-[4.8rem] aspect-[1.3/1] p-8 overflow-hidden"
         >
           <h3 className="text-xl text-white">{title}</h3>
           <p className="text-primary-text text-sm max-w-lg">{text}</p>
