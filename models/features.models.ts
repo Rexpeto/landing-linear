@@ -9,6 +9,7 @@ import {
 
 export interface FeaturesProps {
   children: React.ReactNode;
+  color: string;
 }
 
 export interface MainFeaturesProps {
