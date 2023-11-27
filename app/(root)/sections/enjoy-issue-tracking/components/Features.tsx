@@ -35,10 +35,10 @@ const MainFeatures = ({
 }: MainFeaturesProps) => {
   return (
     <>
-      <div className="relative before:absolute before:inset-0 before:pointer-events-none before:bg-[radial-gradient(ellipse_50%_50%_at_center,rgba(var(--feature-color),0.1),transparent)]">
+      <div className="relative w-full before:absolute before:inset-0 before:bg-[radial-gradient(ellipse_50%_50%_at_center,rgba(var(--feature-color),0.1),transparent)]">
         <Container
           className={classNames(
-            "max-w-[90%] text-center",
+            "max-w-full md:max-w-[90%] text-center",
             imageSize === "small" ? "w-[78rem]" : "w-[102.4rem]",
           )}
         >
@@ -68,14 +68,14 @@ const MainFeatures = ({
 
 const FeatureGrid = ({ features }: FeatureGridProps) => {
   return (
-    <div className="grid grid-cols-3 gap-y-9 mb-16 text-md text-primary-text w-full">
+    <div className="grid grid-cols-2 md:grid-cols-3 gap-y-9 mb-16 text-sm md:text-md text-primary-text w-full">
       {features.map(({ title, text, icon: Icon }: FeatureGrid) => (
         <div
           key={title}
-          className="w-[25.6rem] [&_svg]:inline [&_svg]:fill-white [&_svg]:mr-2"
+          className="max-w-[25.6rem] [&_svg]:inline [&_svg]:fill-white md:[&_svg]:mr-2 [&_svg]:mb-[4px] md:[&_svg]:mb-[2px]"
         >
           <Icon />
-          <span className="text-white mr-2">{title}</span>
+          <span className="block md:inline text-white mr-2">{title}</span>
           {text}
         </div>
       ))}
@@ -85,11 +85,11 @@ const FeatureGrid = ({ features }: FeatureGridProps) => {
 
 const FeatureCards = ({ features }: FeatureCardProps) => {
   return (
-    <div className="grid grid-cols-2 gap-6 w-full">
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full">
       {features.map(({ title, text, image, imageClassName }) => (
         <div
           key={title}
-          className="relative before:absolute before:inset-0 border border-transparent-white bg-[radial-gradient(ellipse_at_center,rgba(var(--feature-color),0.15),transparent)] before:bg-glass-gradient rounded-[4.8rem] aspect-[1.3/1] p-8 overflow-hidden"
+          className="relative py-6 px-8 before:absolute before:inset-0 border border-transparent-white bg-[radial-gradient(ellipse_at_center,rgba(var(--feature-color),0.15),transparent)] before:bg-glass-gradient rounded-[2.4rem] md:rounded-[4.8rem] aspect-[1.3/1] p-8 overflow-hidden"
         >
           <h3 className="text-xl text-white">{title}</h3>
           <p className="text-primary-text text-sm max-w-lg">{text}</p>
