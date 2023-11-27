@@ -3,7 +3,7 @@ import { Features } from "./components";
 
 const EnjoyIssueTracking = () => {
   return (
-    <Features>
+    <Features color="194,97,254">
       <Features.Main
         title={
           <>
