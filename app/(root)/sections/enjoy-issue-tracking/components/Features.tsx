@@ -12,18 +12,10 @@ import Image from "next/image";
 export const Features = ({ children, color }: FeaturesProps) => {
   return (
     <div style={{ "--feature-color": color } as React.CSSProperties}>
-      <Container className="flex flex-col items-center py-48">
+      <Container className="relative flex flex-col items-center py-48 after:absolute after:inset-0 after:bg-[radial-gradient(ellipse_100%_40%_at_50%_60%,rgba(var(--feature-color),0.1),transparent)">
         {children}
       </Container>
     </div>
-  );
-};
-
-export const FeaturesTitle = ({ children }: FeaturesProps) => {
-  return (
-    <h2 className="text-gradient text-center text-4xl mb-11  md:text-[80px]">
-      {children}
-    </h2>
   );
 };
 
@@ -56,12 +48,12 @@ const MainFeatures = ({
           </div>
         </Container>
       </div>
-      <Container className="w-[78rem] max-w-[90%] text-center">
-        <p className="mx-auto my-16 text-2xl leading-tight text-white md:w-[80%] md:text-4xl">
+      <div className="w-[78rem] max-w-[90%] text-center">
+        <p className="mx-auto my-16 text-xl leading-tight text-white md:w-[80%] md:text-2xl">
           {text}
         </p>
         <hr className="mb-[7.2rem] h-[1px] border-none bg-[linear-gradient(to_right,transparent,rgba(255,255,255,0.1)_50%,transparent)]" />
-      </Container>
+      </div>
     </>
   );
 };
@@ -107,6 +99,5 @@ const FeatureCards = ({ features }: FeatureCardProps) => {
 };
 
 Features.Main = MainFeatures;
-Features.Title = FeaturesTitle;
 Features.Grid = FeatureGrid;
 Features.Cards = FeatureCards;
