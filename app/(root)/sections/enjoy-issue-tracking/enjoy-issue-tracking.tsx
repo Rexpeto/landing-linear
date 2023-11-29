@@ -1,10 +1,10 @@
 import { FeaturesDataCards, FeaturesDataGrid } from "@/models";
-import { Features } from "./components";
+import { FeatureCards, FeatureGrid, FeatureMain, Features } from "./components";
 
 const EnjoyIssueTracking = () => {
   return (
     <Features color="194,97,254" colorDark="53,42,79">
-      <Features.Main
+      <FeatureMain
         title={
           <>
             Issue tracking
@@ -15,8 +15,8 @@ const EnjoyIssueTracking = () => {
         image="/issues.webp"
         text="Create tasks in seconds, discuss issues in context, and breeze through your work in views tailored to you and your team."
       />
-      <Features.Grid features={FeaturesDataGrid} />
-      <Features.Cards features={FeaturesDataCards} />
+      <FeatureGrid features={FeaturesDataGrid} />
+      <FeatureCards features={FeaturesDataCards} />
     </Features>
   );
 };
