@@ -2,7 +2,7 @@ import { FeatureGrid, FeatureGridProps } from "@/models";
 
 const FeatureGrid = ({ features }: FeatureGridProps) => {
   return (
-    <div className="grid grid-cols-2 justify-center md:grid-cols-3 gap-y-9 mb-16 text-sm md:text-md text-primary-text w-full">
+    <div className="grid grid-cols-2 md:grid-cols-3 gap-y-9 mb-16 text-sm md:text-md place-items-center text-primary-text w-full">
       {features.map(({ title, text, icon: Icon }: FeatureGrid) => (
         <div
           key={title}
