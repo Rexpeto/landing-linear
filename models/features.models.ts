@@ -5,7 +5,7 @@ import {
   IssuesIcon,
   ParentSubIcon,
   WorkflowsIcon,
-} from "@/app/(root)/sections/enjoy-issue-tracking/icons";
+} from "@/components/icons";
 
 export interface FeaturesProps {
   children: React.ReactNode;
