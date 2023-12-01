@@ -1,5 +1,6 @@
+import { FeatureCards, FeatureGrid, FeatureMain } from "@/components";
+import Features from "@/components/features";
 import { FeaturesDataCards, FeaturesDataGrid } from "@/models";
-import { FeatureCards, FeatureGrid, FeatureMain, Features } from "./components";
 
 const EnjoyIssueTracking = () => {
   return (
