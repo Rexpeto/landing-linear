@@ -1,17 +1,17 @@
 import Link from "next/link";
 import { cva, VariantProps } from "class-variance-authority";
 import classNames from "classnames";
-import { AnchorHTMLAttributes } from "react";
+import { AnchorHTMLAttributes, ButtonHTMLAttributes } from "react";
 
 type ButtonBaseProps = VariantProps<typeof buttonClasses> & {
   children: React.ReactNode;
 };
 
 interface ButtonAsAnchorProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
-  hrfer: string;
+  href: string;
 }
 
-interface ButtonAsButtonProps extends ButtonBaseProps {
+interface ButtonAsButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   href?: never;
 }
 
@@ -46,12 +46,12 @@ const buttonClasses = cva(
   },
 );
 
-const Button = ({ children, href, variants, size, ...props }: ButtonProps) => {
+const Button = ({ children, variants, size, ...props }: ButtonProps) => {
   const classes = buttonClasses({ variants, size, className: props.className });
 
   if ("href" in props && props.href !== undefined) {
     return (
-      <Link {...props} className={classes} href={`${href}`}>
+      <Link {...props} className={classes}>
         {children}
       </Link>
     );

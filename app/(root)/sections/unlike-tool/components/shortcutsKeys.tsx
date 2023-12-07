@@ -22,7 +22,7 @@ const ShortcutsKeys = () => {
   const wrapperRef = useRef<HTMLDivElement>(null);
   const illustrationWrapperRef = useRef<HTMLDivElement>(null);
   const activeShortcut = useRef(0);
-  const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const timeoutRef = useRef<NodeJS.Timeout>();
 
   const scheduleTimeout = () => {
     timeoutRef.current = setTimeout(() => {
