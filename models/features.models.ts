@@ -47,7 +47,7 @@ export const FeaturesDataGrid = [
   },
   {
     title: "Automated backlog.",
-    text: "Linear will auto-close and auto-archive issues.",
+    text: "Vypers will auto-close and auto-archive issues.",
     icon: AutomatedBacklogIcon,
   },
   {

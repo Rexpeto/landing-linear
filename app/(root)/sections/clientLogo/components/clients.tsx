@@ -18,7 +18,7 @@ const Clients = () => {
     <>
       <p className="mb-12 text-center text-lg text-white md:text-xl">
         <span className="text-gray-400">
-          Powering the world's best product teams.
+          Powering the world&apos;s best product teams.
         </span>
         <br className="hidden md:block" /> From next-gen startups to established
         brands

@@ -11,11 +11,11 @@ const SectionHero = () => {
           size="small"
           className="animate-fade-in"
         >
-          Introducing Linear Ask
+          Introducing Vypers Ask
           <GetIcon icon="IoIosArrowForward" />
         </Button>
         <HeroTitle className="animate-fade-in [--animation-timing:200ms] opacity-0 translate-y-[-1rem]">
-          Linear is a better way <br className="hidden lg:block" /> to build
+          Vypers is a better way <br className="hidden lg:block" /> to build
           products
         </HeroTitle>
         <HeroSubtitle className="animate-fade-in [--animation-timing:400ms] translate-y-[-1rem] opacity-0">
