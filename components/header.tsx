@@ -11,7 +11,11 @@ const Header = () => {
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
-    document.querySelector("html")?.classList.toggle("overflow-hidden");
+    if (open) {
+      document.querySelector("html")?.classList.add("overflow-hidden");
+    }
+
+    document.querySelector('html')?.classList.remove('overflow-hidden');
   }, [open]);
 
   return (
