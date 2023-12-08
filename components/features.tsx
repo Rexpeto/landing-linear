@@ -27,7 +27,7 @@ const Features = ({ children, color, colorDark }: FeaturesProps) => {
         !inView && "before:opacity-40 before:rotate-180",
       )}
     >
-      <Container className="my-[23.2rem] w-full">{children}</Container>
+      <Container className="mt-96 w-full">{children}</Container>
     </div>
   );
 };
