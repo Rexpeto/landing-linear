@@ -1,4 +1,5 @@
 import {
+  SectionBuild,
   SectionClientLogo,
   SectionHero,
   SectionTracking,
@@ -12,6 +13,7 @@ const Home = () => {
       <SectionClientLogo />
       <SectionUnlikeTool />
       <SectionTracking />
+      <SectionBuild />
     </>
   );
 };
